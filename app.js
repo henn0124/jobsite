@@ -4,6 +4,7 @@
  */
 
 var port = 1337;
+var http = require('http');
 var stylus = require('stylus');
 var express = require('express');
 var expose = require('express-expose');
@@ -16,8 +17,8 @@ app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
 	app.exposeRequire();
-	app.exposeModule(__dirname + '/node_modules/backbone', 'backbone');
 	app.exposeModule(__dirname + '/node_modules/underscore', 'underscore');
+	app.exposeModule(__dirname + '/node_modules/backbone', 'backbone');
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(stylus.middleware({ src: __dirname + '/public' }));
