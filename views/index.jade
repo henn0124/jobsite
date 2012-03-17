@@ -5,6 +5,18 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(type="text/javascript", src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
     script(type="text/javascript", src="http://platform.linkedin.com/in.js") api_key: cl07n65g8km5
+    script(type="text/javascript")
+      $(document).click(function () {
+        IN.API.Raw("/job-search")
+        .result(function callback (result) { console.log("result", result); })
+        .error(function(err){ console.log(err) });
+      });
+      
   body
     h1= pageData
     p Welcome to #{pageData}
+    div
+      | hi there
+    
+    script(type="in/Login") 
+      | Hello, <?js= firstName ?> <?js= lastName ?>.
