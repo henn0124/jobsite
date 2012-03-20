@@ -19,6 +19,7 @@ app.configure(function(){
 	app.exposeRequire();
 	app.exposeModule(__dirname + '/node_modules/underscore', 'underscore');
 	app.exposeModule(__dirname + '/node_modules/backbone', 'backbone');
+	app.exposeModule(__dirname + '/node_modules/jade', 'jade');
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(stylus.middleware({ src: __dirname + '/public' }));
