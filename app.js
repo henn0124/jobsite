@@ -7,6 +7,7 @@ var port = 1337;
 var http = require('http');
 var stylus = require('stylus');
 var express = require('express');
+var http = require('http');
 var expose = require('express-expose');
 var app = module.exports = express.createServer();
 
@@ -53,6 +54,27 @@ app.get('/map', function (req, res) {
 	res.render('map', {
 		layout: null
 	});
+});
+
+app.get('/search', function (req, res) {
+	res.render('search', {
+		layout: null
+	});  
+});
+
+app.get('/test', function (req, res) {
+  
+  var options = {
+    method: "GET",
+    host: "www.google.com",
+    path: "/"
+  };
+  
+	http.request(options, function (res1) {
+	  res1.on('data', function (data) { res.write(data); });
+    res1.on('end', function () { res.end(); });
+	}).end();
+	
 });
 
 
