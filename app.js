@@ -61,7 +61,7 @@ app.get('/search', function (req, res) {
 	});  
 });
 
-app.get('/test', function (req, res) {
+app.get('/tester', function (req, res) {
   
   var options = {
     method: "GET",
