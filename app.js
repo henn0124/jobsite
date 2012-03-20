@@ -55,6 +55,12 @@ app.get('/map', function (req, res) {
 	});
 });
 
+app.get('/search', function (req, res) {
+	res.render('search', {
+		layout: null
+	});  
+});
+
 app.get('/test', function (req, res) {
   
   var options = {
