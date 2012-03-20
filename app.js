@@ -56,18 +56,23 @@ app.get('/map', function (req, res) {
 	});
 });
 
-app.get('/search', function (req, res) {
+app.get('/test', function (req, res) {
 	res.render('search', {
 		layout: null
 	});  
 });
 
-app.get('/tests', function (req, res) {
+app.get('/search', function (req, res) {
+  
+  var zip = req.query.zip;
+  var keywords = req.query.keywords;
   
   var options = {
     method: "GET",
-    host: "www.google.com",
-    path: "/"
+    host: "api.simplyhired.com",
+    path: "/a/jobs-api/xml-v2/" + encodeURIComponent("l-zipcode(" + zip + ")") + "/" +  
+                                  encodeURIComponent("q-" + keywords) +
+                                  "?pshid=41310&ssty=2&cflg=r&jbd=aaron.jobamatic.com"
   };
   
 	http.request(options, function (res1) {
