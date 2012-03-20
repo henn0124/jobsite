@@ -62,7 +62,7 @@ app.get('/search', function (req, res) {
 	});  
 });
 
-app.get('/test', function (req, res) {
+app.get('/tests', function (req, res) {
   
   var options = {
     method: "GET",
